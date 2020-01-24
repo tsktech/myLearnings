@@ -3,7 +3,6 @@
 
 // Use this simple function for debugging. The values you are passing may not be what you expect.
 
-
 //Sample query string
 $query = "UPDATE users SET name = :user_name WHERE id = :user_id";
 //Sample parameters
@@ -26,6 +25,18 @@ function build_pdo_query($string, $array) {
 }
 
 echo build_pdo_query($query, $params);    //UPDATE users SET name = 'foobear' WHERE id = 1001
+?>
+
+//Displaying errorInfo() fields for a PDO_ODBC connection to a DB2 database
+//
+<?php
+$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+$stmt = $dbh->prepare('bogus sql');
+if (!$stmt) {
+    echo "\nPDO::errorInfo():\n";
+    print_r($dbh->errorInfo());
+}
+?>
 
 
 ?>
