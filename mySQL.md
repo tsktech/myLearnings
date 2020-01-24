@@ -32,10 +32,12 @@ In phpmyadmin, just click the SQL tab, enter the command, and run it.
 
 1. First, optimize the table
 
-    OPTIMIZE TABLE mydb.mytable;
+    OPTIMIZE TABLE invmanpro.user_details;
+    TRUNCATE TABLE invmanpro.category;
 2. Next, locate the highest value for the auto_increment column (say it is id)
 
     SELECT MAX(id) maxid FROM mydb.mytable;
+    SELECT MAX(id) maxid FROM invmanpro.user_details;
     
     Suppose the answer returns 27. 
 3. Goto the Operations tab and enter 28.
